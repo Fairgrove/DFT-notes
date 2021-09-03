@@ -58,6 +58,7 @@ for i in range(20):
 
 centers = [[],[]]
 for ioi in range(1, 50):
+    centers[0].append(ioi)
     centers[1].append(signal.center(ioi))
 
 fig, axs = plt.subplots(3)
