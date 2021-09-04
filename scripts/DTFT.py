@@ -25,7 +25,7 @@ def findFrqs(signal):
     frqs = []
 
     for i in range(len(signal[0])):
-        if signal[1][i] > 0:
+        if signal[1][i] > 0.1:
             frqs.append(signal[0][i])
 
     return frqs
