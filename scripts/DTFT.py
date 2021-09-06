@@ -1,4 +1,4 @@
-from scripts import zTransform
+from scripts.zTransform import *
 
 def DTFT(signal, spectrum):
     """
