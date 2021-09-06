@@ -2,12 +2,10 @@ import matplotlib.pyplot as plt
 import math
 from random import randint
 
-# from scripts.DTFT import *
-# from scripts.plotters import *
-# from scripts.signal import *
-# from scripts.zTransform import *
-
-from scripts import *
+from scripts.DTFT import *
+from scripts.plotters import *
+from scripts.signal import *
+from scripts.zTransform import *
 
 signal = Signal(10000, 1)
 # signal.newSignal(11, 1)
