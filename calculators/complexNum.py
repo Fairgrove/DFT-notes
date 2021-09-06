@@ -1,4 +1,5 @@
 import math
+import matplotlib.pyplot as plt
 
 class ComplexNum():
         def __init__(self, Re, Im):
@@ -26,6 +27,18 @@ class ComplexNum():
 
         def printPolar(self):
             print(self.r, '(cos(', self.phi, ') + i sin(', self.phi, '))')
+
+def plotNums(*argv):
+    for z in argv:
+        print(z.Re, z.Im)
+        plt.plot(z.Re, z.Im, 'o')
+    plt.ylabel('Im')
+    plt.xlabel('Re')
+    plt.style.use('ggplot')
+    #plt.hlines(y=0, color='k')
+    #plt.grid(True, which='both')
+    plt.show()
+
 
 def complexAdd(z1, z2):
     a = z1.Re + z2.Re
@@ -55,5 +68,8 @@ def complexDiv(z1, z2):
 z1 = ComplexNum(2, 7)
 z2 = ComplexNum(-2, 11)
 r = complexSub(z1,z2)
-r.printNum()
-r.printPolar()
+# r.printNum()
+# r.printPolar()
+
+
+plotNums(z1,z2,r)
