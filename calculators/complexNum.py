@@ -34,11 +34,12 @@ def plotNums(*argv):
         plt.plot(z.Re, z.Im, 'o')
     plt.ylabel('Im')
     plt.xlabel('Re')
+    plt.axhline(0,color='black') # x = 0
+    plt.axvline(0,color='black') # y = 0
     plt.style.use('ggplot')
     #plt.hlines(y=0, color='k')
     #plt.grid(True, which='both')
     plt.show()
-
 
 def complexAdd(z1, z2):
     a = z1.Re + z2.Re
@@ -53,21 +54,21 @@ def complexSub(z1, z2):
     return ComplexNum(a, b)
 
 def complexMul(z1, z2):
-    a = z1.Re * z1.Re - z1.Im * z2.Im
-    b = z1.Im * z2.Re + z1.Re * z2.Im
+    a = (z1.Re * z1.Re) - (z1.Im * z2.Im)
+    b = (z1.Im * z2.Re) + (z1.Re * z2.Im)
 
     return ComplexNum(a, b)
 
 def complexDiv(z1, z2):
-    a = (z1.Re * z1.Re - z1.Im * z2.Im) / (z2.Re + z2.Im)
-    b = (z1.Im * z2.Re + z1.Re * z2.Im) / (z2.Re + z2.Im)
+    a = ((z1.Re * z1.Re) - (z1.Im * z2.Im)) / (z2.Re + z2.Im)
+    b = ((z1.Im * z2.Re) + (z1.Re * z2.Im)) / (z2.Re + z2.Im)
 
     return ComplexNum(a, b)
 
 
-z1 = ComplexNum(2, 7)
-z2 = ComplexNum(-2, 11)
-r = complexSub(z1,z2)
+z1 = ComplexNum(2, 5)
+z2 = ComplexNum(1, 2)
+r = complexMul(z1,z2)
 # r.printNum()
 # r.printPolar()
 

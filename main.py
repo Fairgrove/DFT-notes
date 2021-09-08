@@ -32,7 +32,7 @@ axs[1].set_xlabel('Re(z)')
 axs[1].set_title('Z-plane')
 axs[1].plot(zt[0], zt[1])
 
-axs[2].set_title('F-plane, found: ' + str(len(findFrqs(ft))) + '  ' + str(len(signal.frequencies)) + ' created\n' + str(signal.frequencies))
+axs[2].set_title('F-plane, found: ' + str(len(mapFrqs(ft))) + '  ' + str(len(signal.frequencies)) + ' created\n' + str(signal.frequencies))
 axs[2].set_ylabel('Amplitude/2')
 axs[2].set_xlabel('Frequence')
 axs[2].bar(ft[0], ft[1])

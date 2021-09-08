@@ -18,7 +18,7 @@ def DTFT(signal, spectrum):
 
     return centers
 
-def findFrqs(signal):
+def mapFrqs(signal):
     """
     identifies the present frequencies in a fourier transformed signal
     """
