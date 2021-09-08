@@ -71,21 +71,49 @@ class System:
         #convolution (x[n] * h[n])
 
 def convolve(x1, x2):
-    result = [[],[]]
+    result = [[], []]
 
-    for nx1 in x1[0]:
-        for nx2 in x2[0]:
-            n = nx1 + nx2
+    high = x2[0][-1]
+    low = x2[0][0]
+    extend = high + low
+    if low < 0:
+        extend += -2*low
+
+    for i in range(len(x1[0]) +extend):
+        result[0].append(i)
+        result[1].append(0)
+
+    print(low, high)
+    print(result[0])
+    print(len(result[0]))
+
+    for n in x1[0]:
+        for k in x2[0]:
+            if low < 0:
+                mark = n + k - low
+            else:
+                mark = n + k
+
+            result[1][mark] += x1[1][n] * x2[1][k]
+
+    print(len(x1[1]), x1[1])
+    print(len(result[1]),result[1])
+
+    return result
 
 
-                
-
-
-h = [[0,1],[2,1]]
+h = [[0,10,20,30,40,50],[2, 1.6, 1.3, 1, 0.6, 0.3]]
 sys = System(10000, 1, h)
 sys.newSignal(10,1)
 
-a = [sys.inputSignal,range(len(sys.inputSignal))]
-print(len(a[0]), '  ', len(a[1]))
-print(a[0])
-print(a[1][0])
+a = [range(len(sys.inputSignal)), sys.inputSignal]
+
+b = convolve(a, h)
+
+import matplotlib.pyplot as plt
+fig, axs = plt.subplots(2)
+axs[0].set_title('input')
+axs[0].plot(a[0], a[1])
+
+axs[1].set_title('output')
+axs[1].plot(b[0], b[1])
